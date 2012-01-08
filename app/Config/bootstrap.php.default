@@ -1,0 +1,11 @@
+<?php
+
+// Setup a 'default' cache configuration for use in the application.
+Cache::config('default', array('engine' => 'File'));
+
+//Your name (or the Portfolio's owners name)
+Configure::write('Portfolio.name','Joe Blogs');
+//Where the root dir redirects to
+Configure::write('Portfolio.redirect','/example');
+//Your Google analytics account or blank if you don't have one
+//Configure::write('Portfolio.gaa','UA-28177696-1');
