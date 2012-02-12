@@ -2,7 +2,7 @@
 class PortfolioController extends AppController {
     public $name = 'Portfolio';
     public $helpers = array('Html', 'Form');
-	public $uses = array('Portfolio','Link');
+	public $uses = array('Portfolio','Link','Item');
 
 	public function view($webTitle) {
 		$portfolio = $this->Portfolio->findByWebtitle($webTitle);
@@ -13,6 +13,13 @@ class PortfolioController extends AppController {
         $this->set('portfolio', $portfolio);
 		$this->set('links', $this->Link->find('all'));
     }
+
+	public function sitemap() {
+		$this->layout = 'blank';
+		$this->set('portfolios',$this->Portfolio->find('all'));
+		$this->set('items',$this->Item->find('all'));
+		$this->header('Content-Type: text/xml'); 
+	}
 
 /**
  * index method

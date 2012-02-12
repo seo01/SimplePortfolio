@@ -1,9 +1,9 @@
 <?php if(isset($item)){$lightboxStyle="display:block";}else{$lightboxStyle="";}?>
-<div id="overlay" class="overlay" onclick = "unloadLightBox()">
-	<div id="light" class="white_content" style="<?php echo $lightboxStyle;?>">
+<div id="overlay" class="overlay" onclick = "unloadLightBox()" style="<?php echo $lightboxStyle;?>">
+	<div id="light" class="white_content">
 		<?php echo $this->Html->link(
 			$this->Html->image('close.png'), 
-			array('controller' => 'Portfolio', 'action' => 'view', $portfolio['Portfolio']['webtitle']),
+			array('controller' => $portfolio['Portfolio']['webtitle']),
 			array('onclick'=>'unloadLightBox();return false','id'=>"close",'escape'=>false)
 		);?>
 		<div id="box">
@@ -21,7 +21,7 @@
 		<hr/>
 		<?php echo $this->Html->link(
 			Configure::read('Portfolio.name')."'s ".$portfolio['Portfolio']['title'], 
-			array('controller' => 'Portfolio', 'action' => 'view', $portfolio['Portfolio']['webtitle']),
+			array('controller' => $portfolio['Portfolio']['webtitle']),
 			array('onclick'=>'unloadLightBox();return false','class'=>'unloada')
 		);?>
 	</div>
@@ -44,7 +44,7 @@
 	<div class="grid_4 item" onclick = "loadLightBox('<?php echo $item['webtitle'] ?>')">
 		<h2>
 			<?php echo $this->Html->link(
-    			$item['title'], array('controller' => 'Item', 'action' => 'view', $item['webtitle']),
+    			$item['title'], array('controller' => 'i', 'action' => $item['webtitle']),
     			array('onclick'=>'itemClicked(this);return false','id'=>$item['webtitle'])
 			);?>
 		</h2>

@@ -12,6 +12,6 @@ class AppController extends Controller {
     );
 
     function beforeFilter() {
-        $this->Auth->allow('view','display');
+        $this->Auth->allow('view','display','sitemap');
     }
 }

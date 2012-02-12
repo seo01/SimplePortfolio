@@ -5,7 +5,7 @@ function itemClicked(item)
 function loadLightBox(page)
 {
 	$('overlay').style.display='block';
-	new Ajax.Updater('box', '/item/view/'+page+'?xml', { method: 'get' });
+	new Ajax.Updater('box', '/i/'+page+'?xml', { method: 'get' });
 	window.location.hash=page;
 	try
 	{
